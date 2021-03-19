@@ -1,8 +1,8 @@
 # IncBicrystal
 Incompatibility stresses in an infinite bi-crystal with a planar interface
 
-This MATLAB code computes the stress fields in an infinite bi-crystal with a planar interface. 
-The bi-crystal is submitted to a macroscopic homogeneous and remotely applied stress as well as to piecewise uniform plastic strains. 
+This MATLAB code computes the stress fields in an infinite bi-crystal with a planar interface. 	
+The bi-crystal is submitted to a macroscopic homogeneous and remotely applied stress as well as to piecewise uniform plastic strains. 	
 The bi-crystal can have different grain volume fractions.
 The two grains are assumed perfectly bonded  along the planar interface whose normal is along e2. 
 The code provides also the effective stiffness tensor, the macroscopic strain tensor and the effective plastic strain tensor.
