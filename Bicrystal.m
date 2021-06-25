@@ -400,7 +400,7 @@ epsilon_p1=[epsilonp_I(1,1);epsilonp_I(2,2);epsilonp_I(3,3);epsilonp_I(2,3);epsi
 epsilon_p2=[epsilonp_II(1,1);epsilonp_II(2,2);epsilonp_II(3,3);epsilonp_II(2,3);epsilonp_II(3,1);epsilonp_II(1,2)];
 
 % Jumps of plastic strain
-saut_ep = epsilon_p1 - epsilon_p2;
+saut_ep = epsilon_p2 - epsilon_p1;
 
 % Stress vectors (in GB frame)
 sig_vectI = Sig_Vect + f2*G*(saut_S*Sig_Vect + saut_ep);
