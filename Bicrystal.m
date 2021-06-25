@@ -419,8 +419,11 @@ sigmaII = [[sig_vectII(1) sig_vectII(6) sig_vectII(5)];
 % Macroscopic strain tensor in vector notation in GB frame
 strain_vect = f1*(S1*sig_vectI+epsilon_p1) + f2*(S2*sig_vectII+epsilon_p2);
 
+% <ep>
+ep_aver = f1*epsilon_p1 + f2*epsilon_p2;
+
 % Effective plastic strain tensor in vector notation in GB frame
-ep_vect = strain_vect - S_eff*Sig_Vect;
+ep_vect = ep_aver - f1*f2*saut_S*G*saut_ep;
 
 % Macroscopic strain tensor from strain vector in GB frame
 strain = [[strain_vect(1) 0.5*strain_vect(6) 0.5*strain_vect(5)];
@@ -438,8 +441,11 @@ ep = [[ep_vect(1) 0.5*ep_vect(6) 0.5*ep_vect(5)];
 SIGMAI = Tgb*sigmaI*Rgb
 SIGMAII = Tgb*sigmaII*Rgb
 
+% Effective plastic strain tensor in the global frame 
+Ep = Tgb*ep*Rgb
+
 % Passing the macroscopic strain tensor into the global frame
-STRAIN = Tgb*strain*Rgb
+STRAIN = Tgb*strain*Rgb;
 
 % Macroscopic stress in vector notation in the global frame
 SIGMA_Vect = [SIGMA(1,1);SIGMA(2,2);SIGMA(3,3);SIGMA(2,3);SIGMA(3,1);SIGMA(1,2)];
@@ -447,10 +453,10 @@ SIGMA_Vect = [SIGMA(1,1);SIGMA(2,2);SIGMA(3,3);SIGMA(2,3);SIGMA(3,1);SIGMA(1,2)]
 % Macroscopic strain in vector notation in the global frame
 STRAIN_Vect = [STRAIN(1,1);STRAIN(2,2);STRAIN(3,3);2*STRAIN(2,3);2*STRAIN(3,1);2*STRAIN(1,2)];
 
-% Effective plastic strain tensor in vector notation in the global frame
+% Effective plastic strain tensor in vector notation in the global frame (for checking)
 Ep_Vect = STRAIN_Vect - (Ceff^-1)*SIGMA_Vect;
 
-% Effective plastic strain tensor in the global frame 
+% Effective plastic strain tensor in the global frame (for checking)
 Ep = [[Ep_Vect(1) 0.5*Ep_Vect(6) 0.5*Ep_Vect(5)];
       [0.5*Ep_Vect(6) Ep_Vect(2) 0.5*Ep_Vect(4)];
       [0.5*Ep_Vect(5) 0.5*Ep_Vect(4) Ep_Vect(3)]]
