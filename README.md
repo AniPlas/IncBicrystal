@@ -24,3 +24,5 @@ I. Tiba, T. Richeton, C. Motz, H. Vehoff, S. Berbenni, Acta Mater. 83 (2015) 227
 T. Richeton, Crystals 7 (2017) 203 (1-14)
 
 T. Richeton, Scripta Mater. 169 (2019) 14-18
+
+The contracted Voigt notation (11:1, 22: 2, 33: 3, 23: 4, 31:5, 12: 6) is used for stresses and strains in vector notation and stiffnesses and compliances in 6x6 matrix notation.
